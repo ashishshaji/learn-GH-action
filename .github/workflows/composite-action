@@ -1,0 +1,20 @@
+name: Composite Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  greet:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/greet
+
+        with:
+
+          name: John
