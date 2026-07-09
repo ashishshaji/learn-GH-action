@@ -1,0 +1,21 @@
+name: Greeting
+
+description: Demo Composite Action
+
+inputs:
+
+  name:
+
+    required: true
+
+runs:
+
+  using: composite
+
+  steps:
+
+    - shell: bash
+
+      run: |
+
+        echo "Hello ${{ inputs.name }}"
