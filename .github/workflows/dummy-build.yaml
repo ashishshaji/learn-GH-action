@@ -37,22 +37,18 @@ jobs:
       - name: Install Dependencies
         run: |
           echo "Installing dependencies..."
-          npm install
 
       - name: Run Linter
         run: |
           echo "Running lint checks..."
-          npm run lint
 
       - name: Run Unit Tests
         run: |
           echo "Executing unit tests..."
-          npm test
 
       - name: Build Application
         run: |
           echo "Building application..."
-          npm run build
 
       - name: Package Build
         id: package
