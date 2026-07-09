@@ -1,0 +1,21 @@
+name: conditions Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Main Branch
+        if: github.ref == 'refs/heads/main'
+        run: echo "Main"
+
+      - name: Always
+        if: always()
+        run: echo "Cleanup"
+
+      - name: Failure
+        if: failure()
+        run: echo "Failed"
