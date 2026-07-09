@@ -1,0 +1,51 @@
+name: Build Workflow
+
+on:
+
+  workflow_call:
+
+    inputs:
+
+      app:
+
+        required: true
+
+        type: string
+
+    secrets:
+
+      docker-password:
+
+        required: true
+
+    outputs:
+
+      image:
+
+        value: ${{ jobs.build.outputs.image }}
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    outputs:
+
+      image: ${{ steps.create.outputs.image }}
+
+    steps:
+
+      - id: create
+
+        run: |
+
+          echo "image=${{ inputs.app }}:latest" >> $GITHUB_OUTPUT
+
+      - run: |
+
+          echo "Secret Received"
+
+        env:
+
+          PASSWORD: ${{ secrets.docker-password }}
