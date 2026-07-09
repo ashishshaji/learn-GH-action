@@ -1,0 +1,30 @@
+name: Caller
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    uses: ./.github/workflows/reusable.yml
+
+    with:
+
+      app: inventory
+
+    secrets:
+
+      docker-password: ${{ secrets.DOCKER_PASSWORD }}
+
+  deploy:
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - run: |
+
+          echo "${{ needs.build.outputs.image }}"
