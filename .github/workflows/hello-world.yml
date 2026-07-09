@@ -1,0 +1,28 @@
+name: 01 - Hello World
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Message
+        run: |
+          echo "Hello GitHub Actions!"
+          echo "Current Branch: ${{ github.ref }}"
+          echo "Repository: ${{ github.repository }}"
+
+      - name: Print variables
+        run: |
+          echo "Company=$COMPANY"
+          echo "Application=$APP_NAME"
+
+      - name: Create runtime env variable
+        run: |
+          echo "VERSION=1.0.0" >> $GITHUB_ENV
+
+      - name: Use runtime variable
+        run: |
+          echo "Version=$VERSION"
