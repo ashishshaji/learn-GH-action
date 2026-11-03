@@ -7,8 +7,13 @@ on:
         description: "Deployment environment"
         required: true
         type: string
+        default: 'dev'
+      crq_no:
+        description: "crq no"
+        required: true
+        type: string
 
-  push:
+  # push:
 
 jobs:
   hello:
