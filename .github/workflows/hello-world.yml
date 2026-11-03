@@ -6,8 +6,13 @@ on:
       env:
         description: "Deployment environment"
         required: true
-        type: string
-        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - qa
+          - prod
+        default: dev
+          
       crq_no:
         description: "crq no"
         required: true
