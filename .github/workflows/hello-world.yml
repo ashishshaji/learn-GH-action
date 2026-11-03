@@ -1,13 +1,14 @@
-name: 01 - Hello World
+name: "01 - Hello World"
 
 on:
   workflow_dispatch:
-  push:
     inputs:
       env:
+        description: "Deployment environment"
         required: true
-        description: 'deployment env"
-    
+        type: string
+
+  push:
 
 jobs:
   hello:
