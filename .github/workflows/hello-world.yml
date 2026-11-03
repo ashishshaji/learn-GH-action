@@ -2,6 +2,12 @@ name: 01 - Hello World
 
 on:
   workflow_dispatch:
+  push:
+    inputs:
+      env:
+        required: true
+        description: 'deployment env"
+    
 
 jobs:
   hello:
@@ -16,8 +22,7 @@ jobs:
 
       - name: Print variables
         run: |
-          echo "Company=$COMPANY"
-          echo "Application=$APP_NAME"
+          echo "env : ${{ inputs.env }}"
 
       - name: Create runtime env variable
         run: |
